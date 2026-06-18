@@ -9,23 +9,28 @@ document.addEventListener("mousemove", (e) => {
         const eye = p.parentElement;
         const rect = eye.getBoundingClientRect();
 
-        const cx = rect.left + rect.width/2;
-        const cy = rect.top + rect.height/2;
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
 
-        const angle = Math.atan2(e.clientY - cy, e.clientX - cx);
+        const angle = Math.atan2(
+            e.clientY - cy,
+            e.clientX - cx
+        );
 
-        const dist = 6;
+        const dist = 8;
 
         p.style.transform = `
-            translate(${Math.cos(angle)*dist}px,
-            ${Math.sin(angle)*dist}px)
+            translate(
+                ${Math.cos(angle) * dist}px,
+                ${Math.sin(angle) * dist}px
+            )
         `;
 
     });
 
 });
 
-/* ================= EMOJIS POR TIPO ================= */
+/* ================= EMOJIS ================= */
 const emojis = {
     music: "🎵",
     movie: "🎬",
@@ -33,6 +38,15 @@ const emojis = {
     game: "🎮"
 };
 
+/* ================= CORES ================= */
+const hoverClasses = {
+    music: "music-hover",
+    movie: "movie-hover",
+    series: "series-hover",
+    game: "game-hover"
+};
+
+/* ================= HOVER DOS CARDS ================= */
 cards.forEach(card => {
 
     card.addEventListener("mouseenter", () => {
@@ -43,6 +57,8 @@ cards.forEach(card => {
             p.textContent = emojis[type] || "👀";
         });
 
+        card.classList.add(hoverClasses[type]);
+
     });
 
     card.addEventListener("mouseleave", () => {
@@ -50,6 +66,13 @@ cards.forEach(card => {
         pupils.forEach(p => {
             p.textContent = "👀";
         });
+
+        card.classList.remove(
+            "music-hover",
+            "movie-hover",
+            "series-hover",
+            "game-hover"
+        );
 
     });
 

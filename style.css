@@ -103,13 +103,13 @@ header{
 /* OLHOS */
 .eyes{
     display:flex;
-    gap:15px;
+    gap:18px;
     margin-bottom:15px;
 }
 
 .eye{
-    width:35px;
-    height:35px;
+    width:45px;
+    height:45px;
     background:white;
     border-radius:50%;
     display:flex;
@@ -117,10 +117,11 @@ header{
     justify-content:center;
     border:2px solid #333;
     box-shadow:0 0 10px rgba(255,255,255,0.1);
+    transition:0.3s;
 }
 
 .pupil{
-    font-size:22px;
+    font-size:26px;
 }
 
 /* TAGS */
@@ -160,8 +161,6 @@ header{
 
 .card:hover{
     transform:scale(1.04);
-    box-shadow:0 10px 30px rgba(255,48,48,0.25);
-    background:#1f1f1f;
 }
 
 .card img{
@@ -176,7 +175,29 @@ header{
 
 .card p{
     padding:0 10px 12px;
-    color:#bbb;
+    color:#ddd;
+}
+
+/* ================= CORES POR TIPO ================= */
+
+.card.music-hover{
+    background:#7c3aed;
+    box-shadow:0 10px 30px rgba(124,58,237,.5);
+}
+
+.card.movie-hover{
+    background:#dc2626;
+    box-shadow:0 10px 30px rgba(220,38,38,.5);
+}
+
+.card.series-hover{
+    background:#2563eb;
+    box-shadow:0 10px 30px rgba(37,99,235,.5);
+}
+
+.card.game-hover{
+    background:#16a34a;
+    box-shadow:0 10px 30px rgba(22,163,74,.5);
 }
 
 /* FOOTER */
